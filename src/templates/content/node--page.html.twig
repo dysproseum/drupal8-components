@@ -69,24 +69,12 @@
 {{ attach_library('drupal8components/sample-list') }}
 {{ content.body }}
 
-<div>
-<h4>Dump</h4>
-{% for j,k in node.field_basic_page_plain_text %}
- {{ j }} {{ k.value }}
-  {% for s,t in k %}
-    {{ s }}
-  {% endfor %}
-{% endfor %}
-</div>
-
 {% set items = [] %}
-{% for key, val in node.field_basic_page_plain_text %}
-  {{ key }} {{ val.value }}
-  <br>
+{% for paragraph in node.field_component_listing %}
   {%
     set item = {
-      'title': val.value,
-      'desc': val.value
+      'title': paragraph.entity.field_title.value,
+      'desc': paragraph.entity.field_description.value
     }
   %}
   {% set items = items|merge([item]) %}
@@ -95,7 +83,7 @@
 {% if items %}
   {%
     include '@drupal8components/sample-list/sample-list.twig' with {
-      'heading': 'Heres a heading',
+      'heading': node.field_heading.value|default('Component Listing'),
       'items': items
     } only
   %}
