@@ -6,6 +6,8 @@ global:
     # base, layout, component, state, theme
     base:
       dist/css/global.css: {}
+  dependencies:
+    - core/drupal
 
 
 # Example external library.
@@ -29,3 +31,10 @@ global:
 #   dependencies:
 #     - drupal8components/clearfix
 #     - drupal8components/visually-hidden
+
+sample-list:
+  css:
+    component:
+      dist/css/sample-list.css: {}
+  js:
+    dist/js/sample-list.bundle.js: {}
