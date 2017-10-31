@@ -1,10 +1,18 @@
+{#
+/**
+ * @file
+ * Sample Drupal 8 component twig template file.
+ */
+#}
+
 {{ attach_library('drupal8components/sample-list') }}
+
 <section class="sample-list">
   <h2 class="sample-list__heading">{{ heading }}</h2>
   {% for item in items %}
-  <article class="sample-list__item">
-    <h3>{{ item.title }}</h3>
-    <p>{{ item.desc }}</p>
-  </article>
+    <article class="sample-list__item">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.desc }}</p>
+    </article>
   {% endfor %}
 </section>
